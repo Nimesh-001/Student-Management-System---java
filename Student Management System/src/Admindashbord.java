@@ -13,7 +13,7 @@ public class Admindashbord {
     private JButton coursesButton1;
     private JButton userProfilesButton1;
 
-    public Admindashbord() {
+    public Admindashbord(String username) {
 
         JFrame frame = new JFrame("Admindashbord");
         frame.setContentPane(this.panel1);
@@ -66,7 +66,7 @@ public class Admindashbord {
 
 
     public static void main(String[] args) {
-        new Admindashbord();
+        //new Admindashbord();
 
     }
 }

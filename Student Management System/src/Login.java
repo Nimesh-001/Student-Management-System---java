@@ -19,8 +19,7 @@ public class Login {
 
     public Login() {
 
-        Dbconnector dc = new Dbconnector();
-        Connection conn = dc.getConnection();
+
 
         JFrame frame = new JFrame("Login");
         frame.setContentPane(this.panel1);
@@ -45,7 +44,7 @@ public class Login {
                 Dbconnector dbc = new Dbconnector();
                 Connection conn = dbc.getConnection();
 
-                String sql="select * from users where username=? and BINARY password=?";
+                String sql="select * from USER where Username = ? and BINARY Password = ?";
                 try {
                     PreparedStatement pst = conn.prepareStatement(sql);
                     pst.setString(1,username);
@@ -58,22 +57,22 @@ public class Login {
                         switch(designation.toLowerCase()) {
                             case "admin":
                                 frame.dispose();
-                                //new Admindashbord(username);
+                                new Admindashbord(username);
                                 break;
 
                             case "lecturer":
                                 frame.dispose();
-                               // new Lecturdashbord();
+                               // new Lecturdashbord(username);
                                 break;
 
                             case "student":
                                 frame.dispose();
-                                //new Studentdashboard();
+                                //new Studentdashboard(username);
                                 break;
 
                             case "technical officer":
                                 frame.dispose();
-                                //new ToDashbord();
+                                //new ToDashbord(username);
                                 break;
 
                             default:
@@ -82,8 +81,18 @@ public class Login {
                         }
                     }
                 } catch (SQLException ex) {
-                    System.out.println("database error...");
-                    throw new RuntimeException(ex);
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                    JOptionPane.showMessageDialog(null,"database error..");
+                }
+                finally {
+                    if(conn != null) {
+                        try {
+                            conn.close();
+                        } catch (SQLException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
                 }
 
 

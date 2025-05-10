@@ -17,7 +17,7 @@ public class Dbconnector {
     public Connection getConnection() {
         Connection conn = null;
 
-        String url = "jdbc:mysql://localhost:3306/tecmis_db";
+        String url = "jdbc:mysql://localhost:3306/TecMIS_DBB";
         String user = "root";
         String password = "1234";
 

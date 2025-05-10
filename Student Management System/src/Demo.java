@@ -5,10 +5,6 @@ public class Demo {
         Dbconnector dc = new Dbconnector();
         Connection conn = dc.getConnection();
 
-       
-
-
-
         if (conn != null) {
             System.out.println("Database connection established");
 

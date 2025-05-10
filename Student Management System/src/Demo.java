@@ -5,12 +5,7 @@ public class Demo {
         Dbconnector dc = new Dbconnector();
         Connection conn = dc.getConnection();
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
+       
 
 
 
